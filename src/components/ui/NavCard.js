@@ -11,7 +11,7 @@ function NavCard({ slug, img, title, description, router }) {
 		<div>
 			<Link href={`/${slug}`} className={`group `}>
 				<div
-					className={`bg-[linear-gradient(0deg,var(--Colors-Secondary-900,#0D1116)_-93.92%,var(--Colors-Secondary-900,#0D1116)_-0.28%,var(--Colors-Secondary-800,#181E25)_218.2%)]   flex items-center gap-2 px-3 xs:px-[18px] py-5 rounded-[10px] shadow overflow-hidden `}
+					className={`bg-[linear-gradient(0deg,var(--Colors-Secondary-900,#0D1116)_-93.92%,var(--Colors-Secondary-900,#0D1116)_-0.28%,var(--Colors-Secondary-800,#181E25)_218.2%)]   flex items-center gap-2 px-3 xs:px-[10px] py-5 rounded-[10px] shadow overflow-hidden `}
 				>
 					<div className="relative ">
 						{!loaded && <div className="h-[50px] w-[50px] bg-secondary-700 rounded-md animate-pulse absolute inset-0 z-0" />}
@@ -33,7 +33,7 @@ function NavCard({ slug, img, title, description, router }) {
 						<p
 							className={`${
 								router === "/" + slug ? "text-primary-500" : ""
-							} group-hover:text-primary-500 text-neutral-200 duration-500 font-semibold flex text-[12px] xxs:text-[14px] xl:text-[16px] items-center gap-1`}
+							} group-hover:text-primary-500 text-neutral-200 duration-500 font-semibold flex text-[14px] xs:text-[15px] xl:text-[16px] items-center gap-1`}
 						>
 							{title}
 						</p>

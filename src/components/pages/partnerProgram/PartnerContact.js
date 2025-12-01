@@ -169,10 +169,10 @@ function PartnerContact() {
 					{/* <Image src="/others/partner-contact.svg" height={100} width={400} alt="" className="w-full" /> */}
 					<div
 						onClick={handleClose}
-						className="group absolute top-2 right-2 h-[25px] md:h-[40px] w-[25px] md:w-[40px] border-[1px] hover:border-primary-400 rounded-full flex justify-center items-center text-neutral-200 cursor-pointer"
+						className="group absolute top-2 right-2 h-[35px] md:h-[40px] w-[35px] md:w-[40px] border-[1px] hover:border-primary-400 rounded-full flex justify-center items-center text-neutral-200 cursor-pointer"
 					>
 						<div className="">
-							<p className="text-[30px] md:text-[40px] font-[300] rotate-45 ">+</p>
+							<p className="text-[35px] md:text-[40px] font-[300] rotate-45 ">+</p>
 						</div>
 					</div>
 
@@ -192,7 +192,7 @@ function PartnerContact() {
 										onChange={(e) => setName(e.target.value)}
 										type="text"
 										required
-										className="outline-none border-[1px] border-[rgba(84,101,119,0.40)] bg-[rgba(53,65,77,0.20)] w-full sm:h-[50px] text-neutral-50 text-base px-2 py-1 mt-1 rounded-[4px] "
+										className="outline-none border-[1px] border-[rgba(84,101,119,0.40)] bg-[rgba(53,65,77,0.20)] w-full sm:h-[50px] text-neutral-50 text-base px-2 py-2 sm:py-1 mt-1 rounded-[4px] "
 									/>
 									{name === null && (
 										<p className="text-[14px] rounded absolute bottom-[-45px] left-[25%] px-[10px] py-[8px] z-10 bg-[#f1f1f1] before:content-[''] before:absolute before:left-[15%] before:top-[-50%] before:rotate-180  before:border-[10px] before:border-solid before:border-[#f1f1f1] before:border-r-[#0000] before:border-b-[#0000] before:border-l-[#0000]">
@@ -209,7 +209,7 @@ function PartnerContact() {
 										onChange={(e) => setEmail(e.target.value)}
 										type="email"
 										required
-										className="outline-none border-[1px] border-[rgba(84,101,119,0.40)] bg-[rgba(53,65,77,0.20)] w-full sm:h-[50px] text-neutral-50 text-base px-2 py-1 mt-1 rounded-[4px] "
+										className="outline-none border-[1px] border-[rgba(84,101,119,0.40)] bg-[rgba(53,65,77,0.20)] w-full sm:h-[50px] text-neutral-50 text-base px-2 py-2 sm:py-1 mt-1 rounded-[4px] "
 									/>
 									{email === null && (
 										<p className="text-[13px] rounded absolute bottom-[-45px] left-[15%] px-[10px] py-[8px] z-10 bg-[#f1f1f1] before:content-[''] before:absolute before:left-[15%] before:bottom-[100%] before:rotate-180  before:border-[10px] before:border-solid before:border-[#f1f1f1] before:border-r-[#0000] before:border-b-[#0000] before:border-l-[#0000]">
@@ -233,7 +233,7 @@ function PartnerContact() {
 										onKeyDown={handleKeyDown}
 										inputStyle={{
 											width: "100%",
-											height: isPhoneView ? "" : "50px",
+											height: isPhoneView ? "44px" : "50px",
 											backgroundColor: "rgba(53,65,77,0.20)",
 											border: "1px solid rgba(84,101,119,0.40)",
 											color: "#fff",
@@ -264,7 +264,7 @@ function PartnerContact() {
 									<input
 										onChange={(e) => setPosition(e.target.value)}
 										type="text"
-										className="outline-none border-[1px] border-[rgba(84,101,119,0.40)] bg-[rgba(53,65,77,0.20)] w-full sm:h-[50px] text-neutral-50 text-base px-2 py-1 mt-1 rounded-[4px] "
+										className="outline-none border-[1px] border-[rgba(84,101,119,0.40)] bg-[rgba(53,65,77,0.20)] w-full sm:h-[50px] text-neutral-50 text-base px-2 py-2 sm:py-1 mt-1 rounded-[4px] "
 									/>
 									{position === null && (
 										<p className="text-[14px] rounded absolute bottom-[-45px] left-[25%] px-[10px] py-[8px] z-10 bg-[#f1f1f1] before:content-[''] before:absolute before:left-[15%] before:top-[-50%] before:rotate-180  before:border-[10px] before:border-solid before:border-[#f1f1f1] before:border-r-[#0000] before:border-b-[#0000] before:border-l-[#0000]">
@@ -294,12 +294,12 @@ function PartnerContact() {
 									</p>
 								)}
 							</div>
-							<div className="mt-[10px] sm:mt-[20px] ">
+							<div className="mt-[20px] sm:mt-[20px] ">
 								<input
 									onClick={handleSubmit}
 									type="submit"
 									value="Submit your map to success"
-									className="w-full shadow py-2 px-2 cursor-pointer rounded-[4px] bg-primary-600 hover:bg-[#E74329] text-white text-[14px] sm:text-[16px] font-[700] uppercase "
+									className="w-full shadow py-3 px-2 cursor-pointer rounded-[4px] bg-primary-600 hover:bg-[#E74329] text-white text-[14px] sm:text-[16px] font-[700] uppercase "
 								/>
 							</div>
 						</form>

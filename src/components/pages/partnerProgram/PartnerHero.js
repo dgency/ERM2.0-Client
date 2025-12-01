@@ -17,7 +17,7 @@ function PartnerHero({ data, stat }) {
 				<div className="max-w-[1060px] mx-auto px-2.5 pt-14 md:pt-20 pb-20 md:pb-28">
 					<div className="pt-10 md:pt-20 pb-[35px] md:pb-[60px] ">
 						<p className="highlighted_text">{data?.hero_text?.eyebrow_headline}</p>
-						<h1 className="text-neutral-50 text-[clamp(40px,10vw,90px)] font-[700] leading-[1.2] text-center">{data?.hero_text?.headline}</h1>
+						<h1 className="text-neutral-50 text-[clamp(20px,9vw,34px)] xs:text-[36px] lg:text-[clamp(40px,10vw,90px)] font-[700] leading-[1.2] text-center">{data?.hero_text?.headline}</h1>
 						<p className="max-w-[880px] mx-auto text-[16px] sm:text-[20px] text-neutral-300 text-center  mt-3">{data?.hero_text?.description}</p>
 					</div>
 
@@ -29,8 +29,8 @@ function PartnerHero({ data, stat }) {
 				{stat?.map((item, i) => (
 					<div key={i} className={`${i !== stat.length - 1 ? "border-r-[1px] border-neutral-800 " : ""} w-full`}>
 						<div>
-							<p className="text-neutral-50 text-center text-[20px] md:text-[36px] font-[700]">{item?.value}</p>
-							<p className="text-[12px] md:text-[16px] text-center text-neutral-300">{item?.short_description}</p>
+							<p className="text-neutral-50 text-center text-[24px] md:text-[36px] font-[700]">{item?.value}</p>
+							<p className="text-[10px] md:text-[16px] px-1 text-center text-neutral-300">{item?.short_description}</p>
 						</div>
 					</div>
 				))}

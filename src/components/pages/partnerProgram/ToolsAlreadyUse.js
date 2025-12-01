@@ -10,7 +10,7 @@ function ToolsAlreadyUse({data}) {
 					{data?.description}
 				</p>
 			</div>
-			<div className="max-w-[1310px]  mx-auto grid xs:grid-cols-2 gap-y-2.5 sm:gap-y-[30px] gap-x-2.5 sm:gap-x-5">
+			<div className="max-w-[1310px]  mx-auto grid sm:grid-cols-2  gap-y-2.5 sm:gap-y-[30px] gap-x-2.5 sm:gap-x-5">
 				{data?.cards?.map((item, i) => (
 					<div
 						key={i}

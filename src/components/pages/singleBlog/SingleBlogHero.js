@@ -16,7 +16,7 @@ function SingleBlogHero({ data }) {
 							href="/blog"
 							className="group text-neutral-500 hover:text-primary-500 text-center  font-semibold text-[12px] md:text-[14px] flex items-center underline underline-offset-4 "
 						>
-							<MdOutlineArrowDropDown className="text-xl rotate-90 group-hover:translate-x-[-2px] duration-300" /> BACK TO ALL BLOG
+							<MdOutlineArrowDropDown className="text-xl rotate-90 group-hover:translate-x-[-2px] duration-300" /> BACK TO BLOG
 						</Link>
 					</div>
 				</Container>

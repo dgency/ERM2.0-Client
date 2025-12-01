@@ -42,16 +42,16 @@ function HomeHero({ location, cityName, data, image }) {
 							<div className=" flex">
 								<Link
 									// onClick={backToPreviousPage}
-									href="/find-a-room"
+									href="/escape-rooms"
 									className="group text-neutral-500 hover:text-primary-500 text-center  font-semibold text-[12px] md:text-[14px] flex items-center underline underline-offset-4 "
 								>
-									<MdOutlineArrowDropDown className="text-xl rotate-90 group-hover:translate-x-[-2px] duration-300" /> BACK TO ALL LOCATION
+									<MdOutlineArrowDropDown className="text-xl rotate-90 group-hover:translate-x-[-2px] duration-300" /> BACK TO ALL LOCATIONS
 								</Link>
 							</div>
 						)}
 						<div className="pt-10 md:pt-24 pb-2 ">
-							<p className="highlighted_text">{data?.eyebrow_headline}</p>
-							<h1 className="text-[24px] md:text-[54px] font-[700] text-[#fff_!important] max-w-[1127px] mx-auto">{data?.headline}</h1>
+							<h1 className="highlighted_text">{data?.eyebrow_headline}</h1>
+							<p className="text-[clamp(20px,9vw,34px)] xs:text-[36px] lg:text-[clamp(40px,10vw,90px)] font-[700] text-[#fff_!important] leading-[1.2] max-w-[1127px] mx-auto">{data?.headline}</p>
 							<p className="text-[16px] md:text-[20px] text-neutral-300 max-w-[840px] mx-auto pt-2.5">{data?.description}</p>
 						</div>
 

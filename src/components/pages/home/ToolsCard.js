@@ -30,7 +30,7 @@ export default function ToolsCard({ data, isAbout, index }) {
 					style={{ background: data?.card_bg_hex_color }}
 					className="glow_backgroun absolute -left-20 top-[-30px] w-[183px] h-[183px] rounded-full blur-[125px] group-hover:blur-[90px] duration-300 "
 				/>
-				<div className="flex flex-col sm:flex-row lg:flex-col 2xl:flex-row items-center text-center sm:text-left lg:text-center 2xl:text-left mb-[40px] gap-[20px] relative z-10">
+				<div className="flex flex-col sm:flex-row lg:flex-col 2xl:flex-row  sm:text-left lg:text-center 2xl:text-left mb-[60px] sm:mb-[40px] gap-[20px] relative z-10">
 					<Image
 						src={data ? process.env.NEXT_PUBLIC_API_URL + data?.image?.url : ""}
 						width={151}
@@ -56,7 +56,7 @@ export default function ToolsCard({ data, isAbout, index }) {
 										width={120}
 										height={60}
 										alt={logo?.alternativeText || "Logo"}
-										className="h-[20px] w-auto object-contain"
+										className="h-[22px] w-auto object-contain"
 										priority={true}
 									/>
 									<p className="text-[10px] font-[400] text-neutral-100 whitespace-nowrap">{logo?.alternativeText}</p>

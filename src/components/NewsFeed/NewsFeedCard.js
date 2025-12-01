@@ -93,7 +93,7 @@ function NewsFeedCard({ feedData, singleNews, previousData, nextData, randomFeed
 								href="/daily-digest"
 								className="text-neutral-200 hover:text-primary-500 duration-300 text-center font-[500] text-[12px] md:text-[14px] flex items-center decoration-[1px]  underline underline-offset-4 "
 							>
-								<MdOutlineArrowDropDown className="text-2xl rotate-90" /> BACK TO All DAILY DIGEST
+								<MdOutlineArrowDropDown className="text-2xl rotate-90" /> BACK TO DAILY DIGEST
 							</Link>
 						</div>
 					) : (

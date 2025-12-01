@@ -47,14 +47,14 @@ function FreeMarketing({ data, seoData }) {
 		if (myref.current || secondRef.current) {
 			if (e.target.classList.contains("bg-[rgba(53,65,77,0.40)]")) {
 				e.target.classList.remove("bg-[rgba(53,65,77,0.40)]");
-				e.target.classList.remove("border-[rgba(84,101,119,0.20)]", "text-neutral-400");
+				e.target.classList.remove("border-[rgba(84,101,119,0.20)]", "text-neutral-100");
 				e.target.classList.add("bg-[rgba(212,47,0,0.10)]", "border-[rgba(212,47,0,0.20)]", "text-[#ff9f99]");
 				setCount(count + 1);
 				alartRef.current.classList.add("hidden");
 				alartRef2.current.classList.add("hidden");
 			} else if (e.target.classList.contains("bg-[rgba(212,47,0,0.10)]")) {
 				e.target.classList.remove("bg-[rgba(212,47,0,0.10)]", "border-[rgba(212,47,0,0.20)]", "text-[#ff9f99]");
-				e.target.classList.add("bg-[rgba(53,65,77,0.40)]", "border-[rgba(84,101,119,0.20)]", "text-neutral-400");
+				e.target.classList.add("bg-[rgba(53,65,77,0.40)]", "border-[rgba(84,101,119,0.20)]", "text-neutral-100");
 				// console.log(e.target.classList);
 				setCount(count - 1);
 			}
@@ -232,53 +232,19 @@ function FreeMarketing({ data, seoData }) {
 
 	return (
 		<div className="bg-secondary-900 relative">
-			{/* <Head>
-				<title>{seoData && seoData.data.attributes.seo?.metaTitle}</title>
-				<meta name="description" content={`${seoData && seoData.data.attributes.seo?.metaDescription}`} />
-				<meta name="keywords" content={`${seoData && seoData.data.attributes.seo?.keywords}`} />
-				<meta name="robots" content={`${seoData && seoData.data.attributes.seo?.metaRobots}`} />
-				<meta property="og:image" content={`${seoData && seoData.data.attributes.seo?.metaImage.data?.attributes.url}`} />
-				<meta property="og:image:width" content="400" />
-				<meta property="og:image:height" content="300" />
-				<meta name="twitter:card" content="summary_large_image" />
-				<meta name="twitter:image" content={`${seoData && seoData.data.attributes.seo?.metaImage.data?.attributes.url}`} />
-				<meta name="viewport" content="width=device-width, initial-scale=1" />
-				<link rel="canonical" href={`${seoData && seoData.data.attributes.seo?.canonicalURL}`} />
-
-				{seoData &&
-					seoData.data.attributes.seo?.structuredData?.map((data, i) => {
-						return (
-							<script
-								key={i}
-								type="application/ld+json"
-								dangerouslySetInnerHTML={{
-									__html: JSON.stringify(data),
-								}}
-							/>
-						);
-					})}
-			</Head> */}
+			
 			<div className="absolute top-0 h-[200px] w-full bg-[linear-gradient(0deg,rgba(13,17,22,0)_0%,rgba(13,17,22,0)_50%,rgba(230,64,39,0.2)_100%)]"></div>
 			{/* there are a banner component that is renderd from _app.js page */}
 			<div className="">
-				<div className="relative pt-[140px] pb-[100px] md:pb-20 ">
+				<div className="relative pt-[100px] lg:pt-[140px] pb-[100px] md:pb-20 ">
 					<div className=" px-2.5 flex flex-col items-center justify-center">
 						<p className="highlighted_text">{data?.Eyebrow_headline}</p>
-						<h1 className="text-neutral-50 text-[24px] sm:text-[54px] font-[700] text-center">{data?.headline}</h1>
-						<p className="text-[14px] sm:text-[16px] text-neutral-300 text-center">{data?.description}</p>
+						<h1 className="text-neutral-50 text-[24px] sm:text-[54px] pb-2.5 pt-[15px] md:pt-5 font-[700] text-center leading-[1]">{data?.headline}</h1>
+						<p className="text-[14px] sm:text-[16px] text-neutral-300 text-center px-2.5">{data?.description}</p>
 					</div>
 					<div className="mx-[10px] ">
 						<div className="max-w-lg lg:flex justify-between lg:max-w-screen-xl 2xl:max-w-screen-xl mx-auto pt-[55px]  relative min-h-[550px]">
-							{/* <div className="hero_img ">
-								<Image src={`/freemarketing/free-marketing-left.svg`} alt="" height={100} width={220} className="hidden lg:block -mt-8 2xl:ml-20" />
-							</div>
-							<Image
-								src={`/freemarketing/escape-room-free-marketing.svg`}
-								alt=""
-								height={100}
-								width={600}
-								className="lg:hidden h-[150px] absolute -top-[55px]   left-[50%] translate-x-[-50%] opacity-[0.1]"
-							/> */}
+							
 							<Image
 								src={"/pages/freeMarketing/doller.svg"}
 								alt=""
@@ -325,17 +291,17 @@ function FreeMarketing({ data, seoData }) {
 												onClick={handleClick}
 												name={`serveice${i + 1}`}
 												value={item && item.title}
-												className={`rounded relative z-10 cursor-pointer border-[1px] border-[rgba(84,101,119,0.20)] bg-[rgba(53,65,77,0.40)] w-full  md:hover:bg-[rgba(246,131,99,0.2)] px-2.5 py-3 text-neutral-400 text-[16px] font-[500] duration-300 shadow `}
+												className={`rounded relative z-10 cursor-pointer border-[1px] border-[rgba(84,101,119,0.20)] bg-[rgba(53,65,77,0.40)] w-full  md:hover:bg-[rgba(246,131,99,0.2)] px-2.5 py-3 text-neutral-100 text-[16px] font-[500] duration-300 shadow `}
 											>
 												{item && item.title}
 											</button>
 										))}
 									</form>
-									<div className="flex justify-center mt-12">
+									<div className="flex justify-center mt-12 relative z-20">
 										{/* <ButtonMagnito> */}
 										<button
 											onClick={(e) => changeHandler(1, e)}
-											className="magneto cursor-pointer bg-primary-600 hover:bg-primary-700 duration-300 py-3 px-5 lg:px-8 text-white text-[15px] xs:text-[16px] md:text-lg rounded-md font-[700] flex justify-center items-center"
+											className="magneto w-full select-none cursor-pointer bg-primary-600 hover:bg-primary-700 duration-300 py-3 px-5 lg:px-8 text-white text-[15px] xs:text-[16px] md:text-lg rounded-md font-[700] flex justify-center items-center"
 										>
 											<span className="text select-none">{load === true ? "Please wait..." : "START MY FREE MARKETING PLAN"}</span>
 										</button>
@@ -362,16 +328,16 @@ function FreeMarketing({ data, seoData }) {
 												onClick={handleClick}
 												name={`goal${i + 1}`}
 												value={item && item.title}
-												className={`rounded relative z-10 cursor-pointer border-[1px] border-[rgba(84,101,119,0.20)] bg-[rgba(53,65,77,0.40)] w-full  md:hover:bg-[rgba(212,47,0,0.10)] px-2.5 py-3 text-neutral-400 text-[16px] font-[500] duration-300 `}
+												className={`rounded relative z-10 cursor-pointer border-[1px] border-[rgba(84,101,119,0.20)] bg-[rgba(53,65,77,0.40)] w-full  md:hover:bg-[rgba(212,47,0,0.10)] px-2.5 py-3 text-neutral-100 text-[16px] font-[500] duration-300 `}
 											>
 												{item && item.title}
 											</button>
 										))}
 									</form>
-									<div className="flex justify-center mt-12">
+									<div className="flex justify-center mt-12 relative z-20">
 										<button
 											onClick={(e) => changeHandler(2, e)}
-											className="cursor-pointer bg-primary-600 hover:bg-primary-700 duration-300 py-3 px-14 text-white  text-[15px] xs:text-[16px] md:text-lg  rounded font-semibold"
+											className="cursor-pointer select-none w-full bg-primary-600 hover:bg-primary-700 duration-300 py-3 px-14 text-white  text-[15px] xs:text-[16px] md:text-lg  rounded font-semibold"
 										>
 											{load === true ? "Please wait..." : "ALMOST THERE"}
 										</button>
@@ -475,12 +441,12 @@ function FreeMarketing({ data, seoData }) {
 													</div>
 												</div>
 
-												<div className="flex justify-center mt-8 lg:mt-8">
+												<div className="flex justify-center mt-8 lg:mt-8 relative z-20">
 													<input
 														type="submit"
 														onClick={onSubmit}
 														value={load === true ? "Please Wait..." : "SEND MY MARKETING PLAN TODAY!"}
-														className="bg-primary-600 cursor-pointer hover:bg-primary-700 duration-300 py-3 px-5 lg:px-10 text-white text-[15px]  sm:text-lg rounded font-bold"
+														className="bg-primary-600  select-none w-full cursor-pointer hover:bg-primary-700 duration-300 py-3 px-5 lg:px-10 text-white text-[15px]  sm:text-lg rounded font-bold"
 													/>
 												</div>
 											</form>

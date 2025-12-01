@@ -103,7 +103,7 @@ function AccordianItem({ children, value, trigger, index, ...props }) {
 						<Image src="/global/lock.svg" height={20} width={18} alt="" className="w-[15px] sm:w-[20px] h-[15px] sm:h-[20px] " />
 					)}
 				</div>
-				<div className="absolute text-[48px] lg:text-[96px] font-[700] text-[#191d23]">0{index + 1}</div>
+				<div className="absolute text-[48px] lg:text-[96px] font-[700] text-[#272c33]">0{index + 1}</div>
 			</header>
 
 			<div

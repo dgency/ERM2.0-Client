@@ -1,4 +1,5 @@
-import {Open_Sans } from "next/font/google";
+/* eslint-disable @next/next/next-script-for-ga */
+import { Open_Sans } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/global/Footer";
 import ScrollContext from "@/services/ScrollContext";
@@ -9,12 +10,10 @@ import ServiceInitializer from "@/services/ServiceInitializer";
 import RocketTop from "@/components/global/RocketTop";
 
 const openSans = Open_Sans({
-  variable: "--font-open-sans",
-  subsets: ["latin"],
-  display: "swap",
+	variable: "--font-open-sans",
+	subsets: ["latin"],
+	display: "swap",
 });
-
-
 
 export const metadata = {
 	title: "Escape Room Marketer",
@@ -26,14 +25,14 @@ export default function RootLayout({ children }) {
 		<html lang="en">
 			<body className={`${openSans.variable} antialiased `}>
 				{/* <ScrollContext> */}
-					<Providers>
-						<ServiceInitializer />
-						<Navbar />
-						{children}
-						<Footer />
-						<RouteChangeCloser />
-						<RocketTop />
-					</Providers>
+				<Providers>
+					<ServiceInitializer />
+					<Navbar />
+					{children}
+					<Footer />
+					<RouteChangeCloser />
+					<RocketTop />
+				</Providers>
 				{/* </ScrollContext> */}
 			</body>
 		</html>

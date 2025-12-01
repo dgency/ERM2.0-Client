@@ -36,8 +36,8 @@ function Hero({ data }) {
 			<div className="grid grid-cols-2 lg:grid-cols-4 gap-x-2 gap-y-8 sm:gap-8 px-2.5 absolute z-10 bottom-10 left-1/2 transform -translate-x-1/2  w-full max-w-[1400px]">
 				{data?.statistics?.map((stat, i) => (
 					<div key={i} className="flex flex-col items-center ">
-						<p className="text-[#FFF] text-[20px] sm:text-[24px] lg:text-[36px] font-bold leading-[1.2]">{stat?.title}</p>
-						<p className="text-neutral-300 text-[12px] sm:text-[16px] lg:text-[20px] text-center ">{stat?.short_description}</p>
+						<p className="text-[#FFF] text-[22px] sm:text-[24px] lg:text-[36px] font-bold leading-[1.2]">{stat?.title}</p>
+						<p className="text-neutral-300 font-[600] text-[12px] sm:text-[16px] lg:text-[20px] text-center ">{stat?.short_description}</p>
 					</div>
 				))}
 			</div>

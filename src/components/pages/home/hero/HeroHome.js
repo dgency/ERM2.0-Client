@@ -46,7 +46,7 @@ function HeroHome({ data }) {
 								alt={`Partner Logo ${i}`}
 								height={45}
 								width={100}
-								className="h-[25px] sm:h-[35px] 2xl:h-[45px] w-auto"
+								className="h-[25px] xs:h-[30px] sm:h-[35px] 2xl:h-[45px] w-auto"
 								priority={true}
 							/>
 						))}

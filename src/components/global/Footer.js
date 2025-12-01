@@ -36,8 +36,9 @@ function Footer() {
 	console.log(locationData);
 
 	return (
-		<div className="bg-secondary-900 relative shadow-[0px_-40px_80px_#ff492c30] bg-[url('/footer/footer_bg.png')] bg-no-repeat bg-cover md:bg-[length:100%_100%] ">
-			<div className="max-w-[1584px] mx-auto px-2.5 ">
+		<div className="bg-secondary-900 relative shadow-[0px_-40px_80px_#ff492c30] bg-[url('/footer/footer_bg.jpg')] bg-no-repeat bg-cover md:bg-[length:100%_100%] ">
+			<div className="absolute inset-0 bg-black/20"></div>
+			<div className="max-w-[1584px] mx-auto px-2.5 relative z-10">
 				<div className="flex justify-center pt-24 md:pt-28">
 					<Image src="/logo.svg" alt="logo" height={100} width={200} className="" />
 				</div>

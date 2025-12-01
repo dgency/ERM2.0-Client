@@ -509,7 +509,7 @@ function Navbar({ marketingBanner }) {
 								{router !== "/free-marketing" && (
 									<Link
 										href={"/free-marketing"}
-										className="group xl:hidden marketing_plan flex items-center gap-2 xs:gap-2.5 font-[500] flex-[2] px-1.5 xxs:px-[10px] py-[4px] xxs:py-1.5 xs:px-[10px] md:py-[10px] ml-[0] xl:ml-[6px] rounded bg-primary-600 text-neutral-50 relative z-20 text-[13px] xs:text-[14px]"
+										className="group xl:hidden marketing_plan flex items-center font-[600] gap-2 xs:gap-2.5  flex-[2] px-1.5 xxs:px-[10px] py-[8px] xxs:py-2 xs:px-[10px] md:py-[10px] ml-[0] xl:ml-[6px] rounded bg-primary-600 text-neutral-50 relative z-20 text-[13px] xs:text-[14px]"
 									>
 										<Image
 											src="/global/lock.svg"
@@ -632,7 +632,7 @@ function Navbar({ marketingBanner }) {
 									<Link
 										href={"/free-marketing"}
 										// onClick={handleClick}
-										className="button group hover:shadow-[3px_3px_5px_#808082] hover:translate-[2px] duration-300 flex items-center justify-center gap-1 md:gap-2.5 font-[700] px-[20px] py-[8px] rounded-[6px] bg-primary-600 "
+										className="button group hover:shadow-[3px_3px_5px_#808082] hover:translate-[2px] duration-300 flex items-center justify-center gap-1 md:gap-2.5 font-[700] px-[20px] py-[12px] rounded-[6px] bg-primary-600 "
 									>
 										<Image src="/global/lock.svg" height={20} width={18} alt="" className="w-[20px] h-[20px] mb-[1px]  inline-block " />
 
@@ -651,18 +651,18 @@ function Navbar({ marketingBanner }) {
 									>
 										<Image src={"/navbar/escape_door.svg"} alt="" height={16} width={17} />
 
-										<p className="text-[16px] font-[600] text-neutral-200 group-hover:text-primary-500 duration-300">Login</p>
+										<p className="text-[20px] xl:text-[18px] font-[600] text-neutral-200 group-hover:text-primary-500 duration-300">Login</p>
 									</Link>
 								</div>
 								<ul className="text-neutral-200 font-[600] flex flex-col">
 									<div className="border-b-[1px] border-b-secondary-800 py-[25px]">
 										<li
 											onClick={handleSidebarService}
-											className={`group cursor-pointer flex items-center justify-between gap-2 text-[18px] ${open ? "text-primary-500" : ""} ${
+											className={`group cursor-pointer flex items-center justify-between gap-2 text-[20px] xl:text-[18px] ${open ? "text-primary-500" : ""} ${
 												service?.find((item) => item.slug === router.slice(1)) ? "text-primary-500" : ""
 											}  `}
 										>
-											Services <span className="text-[22px]">{open ? <FiMinus /> : <FiPlus />}</span>
+											Services <span className="text-[24px]">{open ? <FiMinus /> : <FiPlus />}</span>
 										</li>
 
 										<div ref={sidebarServiceref} className={`mt-3 space-y-[25px]  ${open ? "block" : "hidden"}`}>
@@ -678,7 +678,7 @@ function Navbar({ marketingBanner }) {
 											))}
 										</div>
 									</div>
-									<li className="text-[18px] border-b-[1px] border-b-secondary-800 py-[25px] ">
+									<li className="text-[20px] xl:text-[18px] border-b-[1px] border-b-secondary-800 py-[25px] ">
 										<Link
 											href={"/bookingmax"}
 											onClick={handleMainSingleMenu}
@@ -687,7 +687,7 @@ function Navbar({ marketingBanner }) {
 											BookingMAX
 										</Link>
 									</li>
-									<li className="text-[18px] border-b-[1px] border-b-secondary-800 py-[25px] ">
+									<li className="text-[20px] xl:text-[18px] border-b-[1px] border-b-secondary-800 py-[25px] ">
 										<Link
 											href={"/testimonials"}
 											onClick={handleMainSingleMenu}
@@ -700,11 +700,11 @@ function Navbar({ marketingBanner }) {
 									<div className="mobile_more border-b-[1px] border-b-secondary-800 py-[25px]">
 										<li
 											onClick={handleWorksPopupMobile}
-											className={`text-[18px]  flex items-center justify-between gap-2 cursor-pointer ${
+											className={`text-[20px] xl:text-[18px]  flex items-center justify-between gap-2 cursor-pointer ${
 												worksData?.find((item) => "/works/" + item.slug === router) || router === "/works" ? "text-primary-500" : ""
 											} ${worksMobileOpen ? "text-primary-500" : ""}`}
 										>
-											Works <span className="text-[22px]">{worksMobileOpen ? <FiMinus /> : <FiPlus />}</span>
+											Works <span className="text-[24px]">{worksMobileOpen ? <FiMinus /> : <FiPlus />}</span>
 										</li>
 
 										<div className={`mt-3 space-y-[25px] text-[16px]  ${worksMobileOpen ? "block" : "hidden"}`}>
@@ -734,13 +734,13 @@ function Navbar({ marketingBanner }) {
 									<div className="mobile_more border-b-[1px] border-b-secondary-800 py-[25px]">
 										<li
 											onClick={handleInsightsPopupMobile}
-											className={`text-[18px]  flex items-center justify-between gap-2 cursor-pointer ${
+											className={`text-[20px] xl:text-[18px]  flex items-center justify-between gap-2 cursor-pointer ${
 												router === "/case-studies" || router === "/daily-digest" || router === "/blog" || router === "/find-a-room"
 													? "text-primary-500"
 													: ""
 											} ${mobileInsightsState ? "text-primary-500" : ""}`}
 										>
-											Insights <span className="text-[22px]">{mobileInsightsState ? <FiMinus /> : <FiPlus />}</span>
+											Insights <span className="text-[24px]">{mobileInsightsState ? <FiMinus /> : <FiPlus />}</span>
 										</li>
 
 										<div className={`mt-3 space-y-[25px] text-[16px]  ${mobileInsightsState ? "block" : "hidden"}`}>
@@ -777,11 +777,11 @@ function Navbar({ marketingBanner }) {
 									<div className="mobile_more border-b-[1px] border-b-secondary-800 py-[25px]">
 										<li
 											onClick={handleMorePopupMobile}
-											className={`text-[18px]  flex items-center justify-between gap-2 cursor-pointer ${
+											className={`text-[20px] xl:text-[18px]  flex items-center justify-between gap-2 cursor-pointer ${
 												router === "/about" || router === "/team" || router === "/partner-program" || router === "/faqs" ? "text-primary-500" : ""
 											} ${mobileMoreState ? "text-primary-500" : ""}`}
 										>
-											More <span className="text-[22px]">{mobileMoreState ? <FiMinus /> : <FiPlus />}</span>
+											More <span className="text-[24px]">{mobileMoreState ? <FiMinus /> : <FiPlus />}</span>
 										</li>
 
 										<div className={`mt-3 space-y-[25px] text-[16px]  ${mobileMoreState ? "block" : "hidden"}`}>
@@ -806,11 +806,11 @@ function Navbar({ marketingBanner }) {
 									<div className="border-b-[1px] border-b-secondary-800 py-[25px]">
 										<li
 											onClick={handleContactPopupMobile}
-											className={`text-[18px] flex items-center justify-between gap-2 cursor-pointer ${
+											className={`text-[20px] xl:text-[18px] flex items-center justify-between gap-2 cursor-pointer ${
 												router.asPath === "/contact" || router.asPath === "/client-call" || router.asPath === "/demo-call" ? "text-primary-500" : " "
 											}${mobileContact ? "text-primary-500" : ""}`}
 										>
-											Contact <span className="text-[22px]">{mobileContact ? <FiMinus /> : <FiPlus />}</span>
+											Contact <span className="text-[24px]">{mobileContact ? <FiMinus /> : <FiPlus />}</span>
 										</li>
 										<div className={`space-y-[25px] text-[16px] mt-3  ${mobileContact ? "block" : "hidden"}`}>
 											<NavCard

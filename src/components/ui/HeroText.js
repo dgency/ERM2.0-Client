@@ -7,7 +7,7 @@ function HeroText({data,btnText}) {
 			<h1 className="highlighted_text text-center mb-3 md:mb-0">
 				{data?.eyebrow_headline}
 			</h1>
-			<p className="text-neutral-50 text-[clamp(40px,10vw,90px)] font-[700] leading-[1.2] text-center">{data?.headline}</p>
+			<p className="text-neutral-50 text-[clamp(20px,9vw,34px)] xs:text-[36px] lg:text-[clamp(40px,10vw,90px)] font-[700] leading-[1.2] text-center">{data?.headline}</p>
 			<p className="max-w-[880px] mx-auto text-[16px] md:text-[20px] text-neutral-300 text-center mb-[50px] mt-3">{data?.description}</p>
 			<HeroButton text={btnText} />
 		</div>

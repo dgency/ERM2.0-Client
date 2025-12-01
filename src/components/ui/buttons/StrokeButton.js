@@ -69,7 +69,7 @@ function StrokeButton({ url , small, medium, left_icon, right_icon, text = "clic
 							width={20}
 							height={20}
 							className={`inline-block group-hover:translate-x-[2px] ml-[2px] duration-300 ${
-								small ? "h-[14px] w-auto" : medium ? "h-[20px] w-[20px]" : "h-[12px] sm:h-[16px] w-auto"
+								small ? "h-[14px] w-auto" : medium ? "h-[12px] md:h-[15px] w-[12px] md:w-[15px]" : "h-[12px] sm:h-[16px] w-auto"
 							}`}
 						/>
 					)}
