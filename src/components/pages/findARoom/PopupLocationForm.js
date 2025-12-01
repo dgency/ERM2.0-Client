@@ -60,7 +60,7 @@ function PopupLocationForm({ data, newData }) {
 							>
 								{item?.city_names?.map((city, j) => (
 									<Link
-										href={`/find-a-room/${city?.slug}`}
+										href={`/escape-rooms/${city?.slug}`}
 										onClick={() => dispatch(setToggle(false))}
 										className={`${
 											city?.slug === pathname.split("/").pop() ? "text-primary-500" : "text-neutral-200"

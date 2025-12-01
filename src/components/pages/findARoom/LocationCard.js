@@ -11,7 +11,7 @@ function LocationCard({ city }) {
 		return count;
 	};
 	return (
-		<Link href={`/find-a-room/${city?.slug}`} className=" h-full w-full flex flex-col rounded-lg ">
+		<Link href={`/escape-rooms/${city?.slug}`} className=" h-full w-full flex flex-col rounded-lg ">
 			<Image
 				src={`${city ? process.env.NEXT_PUBLIC_API_URL + city?.city_image?.url : "/pages/findRooms/miami.png"}`}
 				height={300}
