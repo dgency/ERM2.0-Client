@@ -100,7 +100,7 @@ export async function POST(req) {
 			replyTo: data.email,
 			subject: subject, // Subject line
 			...generateEmail(data),
-			bcc: ["theshakil53@gmail.com"],
+			bcc: ["hamid@dgency.com", "dgency.com@gmail.com", "support@escaperoommarketer.com", "rony@escaperoommarketer.com"],
 		};
 
 		transporter.sendMail(mailOptions, function (err, info) {
