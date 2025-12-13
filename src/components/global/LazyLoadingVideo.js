@@ -1,6 +1,6 @@
 "use client";
 import { usePageLoaded } from "@/hooks/usePageLoaded";
-import { useRef, useState, forwardRef, useImperativeHandle } from "react";
+import { useRef, useState, forwardRef, useImperativeHandle, useEffect } from "react";
 import ReactPlayer from "react-player";
 import { MdPlayCircleFilled } from "react-icons/md";
 
@@ -8,11 +8,28 @@ const LazyLoadingVideo = forwardRef(
 	({ video_url, autoPlay = true, controls = false, muted = true, loop = true, border_radious, poster, onPlay }, ref) => {
 		const isLoaded = usePageLoaded();
 
+		const containerRef = useRef(null);
 		const videoRef = useRef(null);
+		const [shouldRenderVideo, setShouldRenderVideo] = useState(false);
 		const [showControls, setShowControls] = useState(false);
 		const [showPlayBtn, setShowPlayBtn] = useState(true);
 
 		useImperativeHandle(ref, () => videoRef.current);
+
+		// Render video only when visible
+		useEffect 
+		(() => {
+			const observer = new IntersectionObserver(
+				([entry]) => {
+					setShouldRenderVideo(entry.isIntersecting);
+				},
+				{ threshold: 0.3 }
+			);
+
+			if (containerRef.current) observer.observe(containerRef.current);
+
+			return () => observer.disconnect();
+		}, []);
 
 		const handlePlay = () => {
 			setShowControls(true); // show controls
@@ -21,16 +38,14 @@ const LazyLoadingVideo = forwardRef(
 			onPlay && onPlay(); // notify parent
 		};
 
-		
-
 		return (
-			<div className="absolute inset-0 z-10 ">
+			<div ref={containerRef} className="absolute inset-0 z-10">
 				{!isLoaded ? (
 					// <img src="/pages/home/heroImage.png" alt="" className="w-full h-full object-cover" aria-hidden="true" draggable={false} />
 					<div className="w-full h-full bg-secondary-950"></div>
 				) : (
 					<div className={` w-full h-full`}>
-						<video
+						{shouldRenderVideo &&<video
 							ref={videoRef}
 							src={video_url}
 							autoPlay={autoPlay}
@@ -40,10 +55,11 @@ const LazyLoadingVideo = forwardRef(
 							playsInline
 							controls={poster ? showControls : controls}
 							controlsList="nofullscreen"
+							preload="none"
 							style={{ width: "100%", height: "100%", objectFit: "cover" }}
 							className="rounded-2xl"
 							onPlay={onPlay}
-						/>
+						/>}
 						{poster && showPlayBtn && (
 							<button
 								onClick={handlePlay}
