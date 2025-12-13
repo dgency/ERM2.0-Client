@@ -10,11 +10,11 @@ export default function ServiceInitializer() {
 
 	useEffect(() => {
 		// Fetch only if data not already in Redux
-		setTimeout(() => {
-			if (!service && !lastFetched) {
-				dispatch(fetchServiceData());
-			}
-		}, 2000);
+		// setTimeout(() => {
+		// 	if (!service && !lastFetched) {
+		// 		dispatch(fetchServiceData());
+		// 	}
+		// }, 2000);
 	}, [dispatch, service, lastFetched]);
 
 	return null;
