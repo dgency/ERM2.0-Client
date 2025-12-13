@@ -17,8 +17,8 @@ function Hero({ data, video = false, work, lightShadow }) {
 						: {}
 				}
 				className={`${
-					video ? " shadow-[0px_40px_80px_#ff492c20] relative h-screen flex items-center justify-center" : ""
-				} pt-[140px] pb-[140px] bg-secondary-900 bg-cover bg-no-repeat bg-center`}
+					video ? " shadow-[0px_40px_80px_#ff492c20] relative md:h-screen flex items-center justify-center pt-[170px] pb-[170px] md:pt-0 md:pb-0" : "pt-[140px] pb-[140px]"
+				}  bg-secondary-900 bg-cover bg-no-repeat bg-center`}
 			>
 				{work && (
 					<Container>
