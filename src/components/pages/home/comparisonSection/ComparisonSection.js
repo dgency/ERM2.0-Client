@@ -16,7 +16,7 @@ export default function ComparisonSection({ data }) {
 			</div>
 			<Tools data={data?.tools} />
 			
-			{data?.caseStudies && <CaseStudies data={data?.caseStudies} />}
+			{/* {data?.caseStudies && <CaseStudies data={data?.caseStudies} />} */}
 		</div>
 	);
 }

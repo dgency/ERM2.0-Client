@@ -6,7 +6,6 @@ import ComparisonSection from "@/components/pages/home/comparisonSection/Compari
 import HeroHome from "@/components/pages/home/hero/HeroHome";
 import StatsAndClients from "@/components/pages/home/StatsAndClients";
 import { buildMetadataFromSeo, getData } from "@/services/helper";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import qs from "qs";
 
@@ -92,7 +91,7 @@ export default async function Home() {
 				<div>
 					<HeroHome data={data?.hero} />
 					<StatsAndClients data={data?.portfolio} />
-					<BookingMax data={data?.bookingmax} serviceData={data?.services} />
+					{/* <BookingMax data={data?.bookingmax} serviceData={data?.services} /> */}
 
 					<ComparisonSection
 						data={{
