@@ -20,7 +20,13 @@ const LazyLoadingVideo = forwardRef(
 		useEffect(() => {
 			const observer = new IntersectionObserver(
 				([entry]) => {
-					setShouldRenderVideo(entry.isIntersecting);
+					if (autoPlay === true) {
+						if (entry.isIntersecting) {
+							videoRef.current.play();
+						} else {
+							videoRef.current?.pause();
+						}
+					}
 				},
 				{ threshold: 0.3 }
 			);
@@ -44,26 +50,23 @@ const LazyLoadingVideo = forwardRef(
 					<div className="w-full h-full bg-secondary-950"></div>
 				) : (
 					<div className={` w-full h-full relative`}>
-						{shouldRenderVideo ? (
-							<video
-								ref={videoRef}
-								src={video_url}
-								autoPlay={autoPlay}
-								loop={loop}
-								muted={muted}
-								poster={poster && process.env.NEXT_PUBLIC_API_URL + poster}
-								playsInline
-								controls={poster ? showControls : controls}
-								controlsList="nofullscreen"
-								preload="none"
-								style={{ width: "100%", height: "100%", objectFit: "cover" }}
-								className="rounded-2xl absolute inset-0 w-full h-full object-cover"
-								onPlay={onPlay}
-							/>
-						) : (
-							// PLACEHOLDER KEEPS SPACE
-							<div className="absolute inset-0 bg-secondary-950" />
-						)}
+						(
+						<video
+							ref={videoRef}
+							src={video_url}
+							autoPlay={autoPlay}
+							loop={loop}
+							muted={muted}
+							poster={poster && process.env.NEXT_PUBLIC_API_URL + poster}
+							playsInline
+							controls={poster ? showControls : controls}
+							controlsList="nofullscreen"
+							preload="none"
+							style={{ width: "100%", height: "100%", objectFit: "cover" }}
+							className="rounded-2xl absolute inset-0 w-full h-full object-cover"
+							onPlay={onPlay}
+						/>
+						)
 						{poster && showPlayBtn && (
 							<button
 								onClick={handlePlay}
