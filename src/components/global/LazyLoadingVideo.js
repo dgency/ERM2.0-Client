@@ -22,13 +22,13 @@ const LazyLoadingVideo = forwardRef(
 				([entry]) => {
 					if (autoPlay === true) {
 						if (entry.isIntersecting) {
-							videoRef.current.play();
+							video_url && videoRef.current.play();
 						} else {
-							videoRef.current?.pause();
+							video_url && videoRef.current?.pause();
 						}
 					}
 				},
-				{ threshold: 0.3 }
+				{ threshold: 0.4 }
 			);
 
 			if (containerRef.current) observer.observe(containerRef.current);

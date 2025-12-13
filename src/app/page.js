@@ -12,8 +12,7 @@ import qs from "qs";
 export const revalidate = 60;
 
 export async function generateMetadata() {
-	
-	return buildMetadataFromSeo("/api/home")
+	return buildMetadataFromSeo("/api/home");
 }
 
 export default async function Home() {
@@ -28,25 +27,11 @@ export default async function Home() {
 						cards: { populate: ["image", "logos_with_alt"] },
 					},
 				},
-				bookingmax: { populate: ["long_card", "other_card"] },
-				services: true,
 				video_testimonial: { populate: ["testimonial_card"] },
 				cta: { populate: ["background_image"] },
 				comparison: { populate: ["section_header", "comparison_table"] },
 				tools: { populate: ["image"] },
-				casestudy_section: {
-					populate: {
-						case_studies: {
-							populate: {
-								main_image: true,
-								client_feedback: {
-									fields: ["name", "designation", "feedback"],
-								},
-							},
-							fields: ["headline", "slug", "state_1", "state_description1", "video_url"],
-						},
-					},
-				},
+			
 				blog_section: {
 					populate: {
 						blogs: {
@@ -91,7 +76,7 @@ export default async function Home() {
 				<div>
 					<HeroHome data={data?.hero} />
 					<StatsAndClients data={data?.portfolio} />
-					{/* <BookingMax data={data?.bookingmax} serviceData={data?.services} /> */}
+					<BookingMax />
 
 					<ComparisonSection
 						data={{

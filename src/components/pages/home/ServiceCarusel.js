@@ -49,7 +49,6 @@ function ServiceCarusel({ data }) {
 						loop={true}
 						initialSlide={3}
 						centeredSlides={true}
-						
 						navigation={{
 							prevEl: prevRef.current,
 							nextEl: nextRef.current,
@@ -57,7 +56,7 @@ function ServiceCarusel({ data }) {
 						pagination={{
 							el: paginationRef.current,
 							clickable: true,
-							dynamicBullets: true
+							dynamicBullets: true,
 						}}
 						onSwiper={(swiper) => {
 							// assign refs after first render
@@ -80,15 +79,16 @@ function ServiceCarusel({ data }) {
 							},
 						}}
 					>
-						{service
-							?.filter((item) => item?.slug !== router.slice(1))
-							.map((service, i) => {
-								return (
-									<SwiperSlide key={i}>
-										<ServiceCard data={service} />
-									</SwiperSlide>
-								);
-							})}
+						{data &&
+							service
+								?.filter((item) => item?.slug !== router.slice(1))
+								.map((service, i) => {
+									return (
+										<SwiperSlide key={i}>
+											<ServiceCard data={service} />
+										</SwiperSlide>
+									);
+								})}
 					</Swiper>
 				)}
 				<Container carusel={true}>

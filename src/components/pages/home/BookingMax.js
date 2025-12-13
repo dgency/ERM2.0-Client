@@ -1,3 +1,4 @@
+"use client";
 import Container from "@/components/ui/Container";
 import ServiceCard from "@/components/global/ServiceCard";
 import LazyLoadingVideo from "@/components/global/LazyLoadingVideo";
@@ -7,16 +8,76 @@ import UnderlineHeadline from "@/components/ui/UnderlineHeadline";
 import StrokeButton from "@/components/ui/buttons/StrokeButton";
 import FillButton from "@/components/ui/buttons/FillButton";
 import BookingMaxLongCrad from "./BookingMaxLongCrad";
+import { useEffect, useRef, useState } from "react";
+import qs from "qs";
 
-export default function BookingMax({ data, serviceData }) {
+export default function BookingMax() {
+	const [data, setData] = useState(null);
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState(null);
+
+	const sectionRef = useRef(null);
 	// Split by the apostrophe
-	const [before, highlightedWithQuotes] = data ? data?.headline.split("'") : [];
+	const [before, highlightedWithQuotes] = data ? data?.bookingmax?.headline?.split("'") : [];
 
 	// Remove extra quotes if any
 	const highlighted = highlightedWithQuotes?.replace(/'/g, "");
 
+	useEffect(() => {
+		if (!sectionRef.current) return;
+
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				if (entry.isIntersecting) {
+					fetchData(); // 👈 trigger fetch
+					observer.disconnect(); // 👈 important: only once
+				}
+			},
+			{
+				threshold: 0,
+				rootMargin: "200px 0px 0px 0px", // ✅ mobile-friendly
+			}
+		);
+
+		observer.observe(sectionRef.current);
+
+		return () => observer.disconnect();
+	}, []);
+	const fetchData = async () => {
+		try {
+			const query = qs.stringify(
+				{
+					populate: {
+						services: true,
+						bookingmax: { populate: ["long_card", "other_card"] },
+					},
+				},
+				{ encodeValuesOnly: true }
+			);
+
+			const url = `${process.env.NEXT_PUBLIC_API_URL}/api/home?${query}`;
+			const res = await fetch(url);
+
+			if (!res.ok) {
+				throw new Error("Failed to fetch home data");
+			}
+
+			const json = await res.json();
+			setData(json?.data);
+			console.log("bookingMax", json);
+		} catch (err) {
+			setError(err.message, "error");
+			console.log("error");
+		} finally {
+			setLoading(false);
+		}
+	};
+
 	return (
-		<section className=" min-h-screen overflow-x-hidden bg-[url('/pages/home/bookingMaxBg.png')] bg-repeat bg-[length:240px_240px] pb-[100px] lg:pb-[140px] ">
+		<section
+			ref={sectionRef}
+			className=" min-h-screen overflow-x-hidden bg-[url('/pages/home/bookingMaxBg.png')] bg-repeat bg-[length:240px_240px] pb-[100px] lg:pb-[140px] "
+		>
 			<div className="relative py-[100px] md:py-[140px]">
 				{/* Glow/Gradient Backgrounds */}
 				<div className="glow_background absolute -left-40 top-[300px] w-[300px] h-[300px] rounded-full blur-[120px] bg-primary-500 " />
@@ -29,16 +90,15 @@ export default function BookingMax({ data, serviceData }) {
 						{before}
 						{highlighted && <span className="text-primary-500 font-bold">{highlighted}</span>}
 					</h1>
-					<UnderlineHeadline text={data?.description} text_light={true} text_center={true} />
+					<UnderlineHeadline text={data?.bookingmax?.description} text_light={true} text_center={true} />
 				</div>
 				<Container>
 					{/* Hero Card */}
-					<BookingMaxLongCrad data={data?.long_card} />
-
+					<BookingMaxLongCrad data={data?.bookingmax?.long_card} />
 					{/* Features Cards */}
 					<div className="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6 md:mt-[80px] ">
 						{/* Card 1 */}
-						{data?.other_card?.map((card, index) => (
+						{data?.bookingmax?.other_card?.map((card, index) => (
 							<div key={index} className="group relative rounded-2xl px-5 md:px-[32px] pb-[45px]  flex flex-col justify-end h-[525px] lg:h-[695px]">
 								<span className="highlighted_text mb-1 absolute z-20 top-[30px] md:top-[48px]">{card?.tag}</span>
 								<div className="relative z-20">
@@ -55,7 +115,7 @@ export default function BookingMax({ data, serviceData }) {
 				</Container>
 			</div>
 
-			<ServiceCarusel data={serviceData} />
+			<ServiceCarusel data={data?.services} />
 		</section>
 	);
 }

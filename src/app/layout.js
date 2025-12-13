@@ -7,7 +7,7 @@ import Navbar from "@/components/global/Navbar";
 import { Providers } from "@/lib/Providers";
 import RouteChangeCloser from "@/services/RouteChangeCloser";
 import ServiceInitializer from "@/services/ServiceInitializer";
-import RocketTop from "@/components/global/RocketTop";
+// import RocketTop from "@/components/global/RocketTop";
 
 const openSans = Open_Sans({
 	variable: "--font-open-sans",
@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
 					{children}
 					<Footer />
 					<RouteChangeCloser />
-					<RocketTop />
+					{/* <RocketTop /> */}
 				</Providers>
 				{/* </ScrollContext> */}
 			</body>
