@@ -61,7 +61,7 @@ const LazyLoadingVideo = forwardRef(
 							playsInline
 							controls={poster ? showControls : controls}
 							controlsList="nofullscreen"
-							preload="none"
+							preload="auto"
 							style={{ width: "100%", height: "100%", objectFit: "cover" }}
 							className="rounded-2xl absolute inset-0 w-full h-full object-cover"
 							onPlay={onPlay}

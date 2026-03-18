@@ -20,7 +20,7 @@ function NavCard({ slug, img, title, description, router }) {
 							alt=""
 							height={50}
 							width={50}
-							onLoadingComplete={() => setLoaded(true)}
+							onLoad={() => setLoaded(true)}
 							className="group-hover:scale-105 duration-500 relative z-10"
 						/>
 						<div

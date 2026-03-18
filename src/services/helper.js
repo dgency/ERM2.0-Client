@@ -105,6 +105,6 @@ export async function buildMetadataFromSeo(apiURL, options = {}) {
 		alternates: {
 			canonical: canonical || undefined,
 		},
-		viewport: "width=device-width, initial-scale=1",
+	//	viewport: "width=device-width, initial-scale=1",
 	};
 }
