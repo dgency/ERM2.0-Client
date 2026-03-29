@@ -12,88 +12,96 @@ import qs from "qs";
 export const revalidate = 60;
 
 export async function generateMetadata() {
-	return buildMetadataFromSeo("/api/home");
+  return buildMetadataFromSeo("/api/home");
 }
 
 export default async function Home() {
-	const query = qs.stringify(
-		{
-			populate: {
-				hero: { populate: ["logos", "title_second_line"] },
-				portfolio: {
-					populate: {
-						statistics: true,
-						logos: true,
-						cards: { populate: ["image", "logos_with_alt"] },
-					},
-				},
-				video_testimonial: { populate: ["testimonial_card"] },
-				cta: { populate: ["background_image"] },
-				comparison: { populate: ["section_header", "comparison_table"] },
-				tools: { populate: ["image"] },
-			
-				blog_section: {
-					populate: {
-						blogs: {
-							populate: {
-								main_image: true,
-							},
-							fields: ["headline", "slug", "updated_date", "tag"],
-						},
-					},
-				},
-				faq: {
-					populate: {
-						question_answer: true,
-					},
-				},
-				seo: {
-					fields: ["structuredData"],
-				},
-			},
-		},
-		{ encodeValuesOnly: true }
-	);
+  const query = qs.stringify(
+    {
+      populate: {
+        hero: { populate: ["logos", "title_second_line"] },
+        portfolio: {
+          populate: {
+            statistics: true,
+            logos: true,
+            cards: { populate: ["image", "logos_with_alt"] },
+          },
+        },
+        video_testimonial: { populate: ["testimonial_card"] },
+        cta: { populate: ["background_image"] },
+        comparison: { populate: ["section_header", "comparison_table"] },
+        tools: { populate: ["image"] },
+        // fettch booking max section data
+        /*
+        bookingmax: {
+          populate: {
+            services: true,
+            bookingmax: { populate: ["long_card", "other_card"] },
+          },
+        },*/
+        // fettch booking max section data
+        blog_section: {
+          populate: {
+            blogs: {
+              populate: {
+                main_image: true,
+              },
+              fields: ["headline", "slug", "updated_date", "tag"],
+            },
+          },
+        },
+        faq: {
+          populate: {
+            question_answer: true,
+          },
+        },
+        seo: {
+          fields: ["structuredData"],
+        },
+      },
+    },
+    { encodeValuesOnly: true },
+  );
 
-	const url = `${process.env.NEXT_PUBLIC_API_URL}/api/home?${query}`;
+  const url = `${process.env.NEXT_PUBLIC_API_URL}/api/home?${query}`;
 
-	const { data } = await getData(url, "Home page");
+  const { data } = await getData(url, "Home page");
 
-	if (!data) {
-		notFound();
-	}
+  if (!data) {
+    notFound();
+  }
 
-	const seo = data?.seo;
+  const seo = data?.seo;
 
-	try {
-		return (
-			<>
-				{seo &&
-					seo.structuredData?.map((item, i) => {
-						return <StructureData data={item} key={i} />;
-					})}
+  try {
+    return (
+      <>
+        {seo &&
+          seo.structuredData?.map((item, i) => {
+            return <StructureData data={item} key={i} />;
+          })}
 
-				<div>
-					<HeroHome data={data?.hero} />
-					<StatsAndClients data={data?.portfolio} />
-					<BookingMax />
+        <div>
+          <HeroHome data={data?.hero} />
+          <StatsAndClients data={data?.portfolio} />
+          <BookingMax />
 
-					<ComparisonSection
-						data={{
-							comparison: data?.comparison,
-							tools: data?.tools,
-							testimonials: data?.video_testimonial,
-							caseStudies: data?.casestudy_section,
-							banner: data?.cta,
-						}}
-					/>
-					<Blog data={data?.blog_section} />
-					<FrequentlyAsk data={data?.faq} />
-				</div>
-			</>
-		);
-	} catch (error) {
-		notFound();
-		console.log(error);
-	}
+          <ComparisonSection
+            data={{
+              comparison: data?.comparison,
+              tools: data?.tools,
+              testimonials: data?.video_testimonial,
+              caseStudies: data?.casestudy_section,
+              banner: data?.cta,
+            }}
+          />
+          <Blog data={data?.blog_section} />
+          <FrequentlyAsk data={data?.faq} />
+        </div>
+      </>
+    );
+  } catch (error) {
+    notFound();
+    console.log(error);
+  }
 }

@@ -32,7 +32,7 @@ function ServiceCarusel({ data }) {
 	}, []);
 
 	return (
-		<div className="text-cyan-50 relative z-20">
+		<div className="text-cyan-50 relative z-20 h-service card">
 			<Container>
 				<div className="max-w-[1260px] mb-[50px] md:mb-[80px]">
 					<p className="highlighted_text ">{data?.eyebrow_headline}</p>

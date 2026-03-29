@@ -42,7 +42,7 @@ export default function AnimatedText({ sentences = [] }) {
 
   return (
     <span className="relative inline-block h-full w-full  overflow-hidden text-primary">
-      <AnimatePresence mode="popLayout" >
+      <AnimatePresence mode="popLayout">
         <motion.span
           key={index}
           variants={variants}

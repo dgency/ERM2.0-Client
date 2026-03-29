@@ -14,7 +14,7 @@ const LazyLoadingVideo = forwardRef(
 		const [showControls, setShowControls] = useState(false);
 		const [showPlayBtn, setShowPlayBtn] = useState(true);
 
-		useImperativeHandle(ref, () => videoRef.current);
+		useImperativeHandle(ref, () => videoRef.current); 
 
 		// Render video only when visible
 		useEffect(() => {

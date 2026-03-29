@@ -1,5 +1,5 @@
 //import LazyLoadingVideo from "@/components/global/LazyLoadingVideo";
-import HeroBgVideo from "@/components/optimized/HeroBgVideo";
+import HeroBgVideo from "@/components/optimized/elements/HeroBgVideo";
 
 import Image from "next/image";
 import AnimatedText from "./AnimatedText";
