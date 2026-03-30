@@ -6,7 +6,7 @@ export default function CardBgVideo({ video_url, poster }) {
     videoRef.current.play();
   }, []);
   return (
-    <div className="absolute inset-0 z-10 card-video-bg">
+    <div className="absolute inset-0 z-10 card-video-bg apl">
       <div className={` w-full h-full relative`}>
         <video
           ref={videoRef}
