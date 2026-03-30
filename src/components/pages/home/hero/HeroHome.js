@@ -8,7 +8,7 @@ import HeroButton from "@/components/ui/buttons/HeroButton";
 
 function HeroHome({ data }) {
   return (
-    <section className="relative w-full sm:h-[95vh] bg-secondary-950">
+    <section className="relative w-full sm:h-[95vh] bg-secondary-950 hero-n-16">
       {/* Background Video or Image */}
 
       <div className="absolute inset-0 z-10">
