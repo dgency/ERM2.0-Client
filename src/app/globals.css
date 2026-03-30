@@ -1,7 +1,6 @@
-@import "tailwindcss";
 @import url("../styles/home.css");
 @import url("../styles/contact.css");
-
+@import "tailwindcss";
 @theme {
 	/* Colors */
 	--color-primary-50: #fff0f0;

@@ -12,7 +12,12 @@ import qs from "qs";
 export const revalidate = 60;
 
 export async function generateMetadata() {
-  return buildMetadataFromSeo("/api/home");
+  const pageSeo = await buildMetadataFromSeo("/api/home");
+
+  if (!pageSeo) {
+    notFound();
+  }
+  return pageSeo;
 }
 
 export default async function Home() {
