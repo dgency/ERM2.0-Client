@@ -14,7 +14,7 @@ function BookingMaxLongCrad({ data, isStroke = true }) {
   };
 
   return (
-    <div className="relative max-w-full  rounded-2xl mx-auto aspect-[300/400] xs:aspect-[398/295]  md:aspect-[1584/700] bg-[rgba(22,26,30,0.90)]  ">
+    <div className="bkm-l relative max-w-full  rounded-2xl mx-auto aspect-[300/400] xs:aspect-[398/295]  md:aspect-[1584/700] bg-[rgba(22,26,30,0.90)]  ">
       {/* Video or Image Placeholder (can replace with a <video> or <img>) */}
 
       <div className="absolute inset-0 max-card-video-bg ">

@@ -3,19 +3,20 @@
 import React, { useRef, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { usePathname } from "next/navigation";
+// import Swiper and required modules
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-// import required modules
-import { Pagination } from "swiper/modules";
-import { Navigation } from "swiper/modules";
+
 import Container from "@/components/ui/Container";
 import UnderlineHeadline from "@/components/ui/UnderlineHeadline";
-import ServiceCard from "@/components/global/ServiceCard";
+import ServiceBgVideoCard from "@/components/optimized/ui/ServiceBgVideoCard";
 
-function ServiceCarusel({ data }) {
+export default function BookingMaxServiceCarousel({ serviceCarouselData }) {
   const { service } = useSelector((state) => state.service);
   const router = usePathname();
 
@@ -28,13 +29,21 @@ function ServiceCarusel({ data }) {
   useEffect(() => {
     setSwiperReady(true);
   }, []);
-
+  const findServiceVideoPoster = (index) => {
+    let serviceNo = index + 1;
+    return "/services/erm-service-video-poster-" + serviceNo + ".jpg";
+  };
   return (
-    <div className="text-cyan-50 relative z-20 h-service card">
+    <div className="text-cyan-50  h-service card">
       <Container>
         <div className="max-w-315 mb-12.5 md:mb-20">
-          <p className="highlighted_text ">{data?.eyebrow_headline}</p>
-          <UnderlineHeadline text={data?.headline} text_light={true} />
+          <p className="highlighted_text ">
+            {serviceCarouselData?.eyebrow_headline}
+          </p>
+          <UnderlineHeadline
+            text={serviceCarouselData?.headline}
+            text_light={true}
+          />
         </div>
       </Container>
 
@@ -77,13 +86,17 @@ function ServiceCarusel({ data }) {
               },
             }}
           >
-            {data &&
+            {serviceCarouselData &&
               service
                 ?.filter((item) => item?.slug !== router.slice(1))
-                .map((service, i) => {
+                .map((item, index) => {
                   return (
-                    <SwiperSlide key={i}>
-                      <ServiceCard data={service} />
+                    <SwiperSlide key={index}>+
+                      <ServiceBgVideoCard
+                        serviceData={item}
+                        poster={findServiceVideoPoster(index)}
+                       
+                      />
                     </SwiperSlide>
                   );
                 })}
@@ -108,5 +121,3 @@ function ServiceCarusel({ data }) {
     </div>
   );
 }
-
-export default ServiceCarusel;

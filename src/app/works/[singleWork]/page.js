@@ -8,12 +8,12 @@ import React from "react";
 export const revalidate = 60;
 
 export async function generateMetadata({ params }) {
-	const { singleWork } = params;
+	const { singleWork } =await params;
 	return buildMetadataFromSeo(`/api/works/${singleWork}`);
 }
 
 async function page({ params }) {
-	const { singleWork } = params;
+	const { singleWork } = await params;
 	const url = `${process.env.NEXT_PUBLIC_API_URL}/api/works/${singleWork}`;
 
 	const { data } = await getData(url, "singleWork Page");

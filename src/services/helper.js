@@ -63,7 +63,7 @@ export async function buildMetadataFromSeo(apiURL, options = {}) {
     next: { revalidate: 60 },
   });
 
- // console.log("SEO Data:", seoData);
+  console.log("SEO Data for", apiURL, ":", seoData);
 
   let seo = seoData.length ? seoData[0]?.seo : seoData?.seo;
 

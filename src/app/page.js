@@ -1,19 +1,22 @@
+import qs from "qs";
+import { notFound } from "next/navigation";
+import { buildMetadataFromSeo, getData } from "@/services/helper";
+//import HeroHome from "@/components/pages/home/hero/HeroHome";
+import HomeHeroSection from "@/components/pages/home/sections/HomeHeroSection";
+import BookingMax from "@/components/pages/home/BookingMax";
+import BookingMaxSection from "@/components/pages/home/sections/BookingMaxSection";
 import FrequentlyAsk from "@/components/global/faq/FrequentlyAsk";
 import StructureData from "@/components/global/StructureData";
 import Blog from "@/components/pages/home/Blog";
-import BookingMax from "@/components/pages/home/BookingMax";
+
 import ComparisonSection from "@/components/pages/home/comparisonSection/ComparisonSection";
-import HeroHome from "@/components/pages/home/hero/HeroHome";
+
 import StatsAndClients from "@/components/pages/home/StatsAndClients";
-import { buildMetadataFromSeo, getData } from "@/services/helper";
-import { notFound } from "next/navigation";
-import qs from "qs";
 
 export const revalidate = 60;
 
 export async function generateMetadata() {
   const pageSeo = await buildMetadataFromSeo("/api/home");
-
   if (!pageSeo) {
     notFound();
   }
@@ -37,14 +40,9 @@ export default async function Home() {
         comparison: { populate: ["section_header", "comparison_table"] },
         tools: { populate: ["image"] },
         // fettch booking max section data
-        /*
-        bookingmax: {
-          populate: {
-            services: true,
-            bookingmax: { populate: ["long_card", "other_card"] },
-          },
-        },*/
-        // fettch booking max section data
+        // services: true,
+        services: true,
+        bookingmax: { populate: ["long_card", "other_card"] },
         blog_section: {
           populate: {
             blogs: {
@@ -71,13 +69,13 @@ export default async function Home() {
   const url = `${process.env.NEXT_PUBLIC_API_URL}/api/home?${query}`;
 
   const { data } = await getData(url, "Home page");
-
+console.log("home page data  :", data);
   if (!data) {
     notFound();
   }
 
   const seo = data?.seo;
-
+  
   try {
     return (
       <>
@@ -87,9 +85,9 @@ export default async function Home() {
           })}
 
         <div>
-          <HeroHome data={data?.hero} />
+          <HomeHeroSection data={data?.hero} />
           <StatsAndClients data={data?.portfolio} />
-          <BookingMax />
+          <BookingMaxSection bookingmaxData={data?.bookingmax}  serviceCarouselData={data?.services}/>
 
           <ComparisonSection
             data={{

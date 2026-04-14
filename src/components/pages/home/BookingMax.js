@@ -107,12 +107,12 @@ export default function BookingMax() {
           {/* Hero Card */}
           <BookingMaxLongCrad data={data?.bookingmax?.long_card} />
           {/* Features Cards */}
-          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6 md:mt-[80px] ">
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6 md:mt-20 ">
             {/* Card 1 */}
             {data?.bookingmax?.other_card?.map((card, index) => (
               <div
                 key={index}
-                className="group relative rounded-2xl px-5 md:px-[32px] pb-[45px]  flex flex-col justify-end h-[525px] lg:h-[695px]"
+                className="group relative rounded-2xl px-5 md:px-8 pb-[45px]  flex flex-col justify-end h-[525px] lg:h-[695px]"
               >
                 <span className="highlighted_text mb-1 absolute z-20 top-[30px] md:top-[48px]">
                   {card?.tag}
