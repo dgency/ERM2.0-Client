@@ -9,12 +9,12 @@ import React from "react";
 export const revalidate = 60;
 
 export async function generateMetadata({ params }) {
-	const { singleBlog } = params;
+	const { singleBlog } =await params;
 	return buildMetadataFromSeo(`/api/blogs/${singleBlog}`);
 }
 
 async function page({ params }) {
-	const { singleBlog } = params;
+	const { singleBlog } = await params;
 	const url = `${process.env.NEXT_PUBLIC_API_URL}/api/blogs/${singleBlog}`;
 
 	const data = await getData(url, "Single Blog Page");

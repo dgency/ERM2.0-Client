@@ -16,7 +16,7 @@ function wrapToRange(v, min, max) {
 }
 
 // Infinite scrolling column
-function InfiniteColumn({ items, direction = "up", speed = 0.12, logoHeight = DEFAULT_LOGO_HEIGHT, gap = DEFAULT_GAP }) {
+function InfiniteColumn({ items, direction = "up", speed = 0.16, logoHeight = DEFAULT_LOGO_HEIGHT, gap = DEFAULT_GAP }) {
   if (!items || items.length === 0) return null;
 
   // Duplicate internally for seamless scroll
@@ -100,9 +100,14 @@ InfiniteColumn.propTypes = {
   logoHeight: PropTypes.number,
   gap: PropTypes.number,
 };
-
+AnimatedLogoGrid.propTypes = {
+  logos: PropTypes.arrayOf(PropTypes.string).isRequired,
+  speed: PropTypes.number,
+  logoHeight: PropTypes.number,
+  gap: PropTypes.number,
+};
 // Main Animated Logo Grid
-export default function AnimatedLogoGrid({ logos = [], speed = 0.12, logoHeight = DEFAULT_LOGO_HEIGHT, gap = DEFAULT_GAP }) {
+export default function AnimatedLogoGrid({ logos = [], speed = 0.16, logoHeight = DEFAULT_LOGO_HEIGHT, gap = DEFAULT_GAP }) {
   const [columnsCount, setColumnsCount] = useState(5);
 
   // Responsive column count
@@ -175,9 +180,4 @@ export default function AnimatedLogoGrid({ logos = [], speed = 0.12, logoHeight 
   );
 }
 
-AnimatedLogoGrid.propTypes = {
-  logos: PropTypes.arrayOf(PropTypes.string).isRequired,
-  speed: PropTypes.number,
-  logoHeight: PropTypes.number,
-  gap: PropTypes.number,
-};
+

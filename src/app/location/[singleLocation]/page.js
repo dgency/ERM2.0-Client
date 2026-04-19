@@ -10,12 +10,12 @@ import React from "react";
 export const revalidate = 60;
 
 export async function generateMetadata({ params }) {
-	const { singleLocation } = params;
+	const { singleLocation } =await params;
 	return buildMetadataFromSeo(`/api/locations/${singleLocation}`);
 }
 
 async function page({ params }) {
-	const { singleLocation } = params;
+	const { singleLocation } =await params;
 	const url = `${process.env.NEXT_PUBLIC_API_URL}/api/locations/${singleLocation}`;
 
 	const { data } = await getData(url, "Location Page");

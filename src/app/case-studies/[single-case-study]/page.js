@@ -13,13 +13,13 @@ import React from "react";
 export const revalidate = 60;
 
 export async function generateMetadata({ params }) {
-	const { "single-case-study": singleCaseStudy } = params;
+	const { "single-case-study": singleCaseStudy } =await params;
 	return buildMetadataFromSeo(`/api/case-studies/${singleCaseStudy}`);
 }
 
 async function page({ params }) {
 	// const { single-case-study } = params;
-	const { "single-case-study": singleCaseStudy } = params;
+	const { "single-case-study": singleCaseStudy } =await params;
 
 	const url = `${process.env.NEXT_PUBLIC_API_URL}/api/case-studies/${singleCaseStudy}`;
 

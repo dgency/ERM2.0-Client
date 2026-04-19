@@ -15,12 +15,12 @@ import StructureData from "@/components/global/StructureData";
 export const revalidate = 60;
 
 export async function generateMetadata({ params }) {
-	const { location } = params;
+	const { location } =await params;
 	return buildMetadataFromSeo(`/api/city-names/${location}`);
 }
 
 async function page({ params }) {
-	const { location } = params;
+	const { location } =await params;
 	const url = `${process.env.NEXT_PUBLIC_API_URL}/api/city-names/${location}`;
 
 	const { data } = await getData(url, "Directory location page");

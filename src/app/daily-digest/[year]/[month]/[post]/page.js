@@ -5,7 +5,7 @@ import React from "react";
 export const revalidate = 60;
 
 export async function generateMetadata({ params }) {
-	const { post } = params;
+	const { post } =await params;
 	return buildMetadataFromSeo(`/api/news-feeds/${post}`);
 }
 
