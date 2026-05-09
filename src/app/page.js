@@ -69,7 +69,7 @@ export default async function Home() {
   const url = `${process.env.NEXT_PUBLIC_API_URL}/api/home?${query}`;
 
   const { data } = await getData(url, "Home page");
-console.log("home page data  :", data);
+//console.log("home page data  :", data);
   if (!data) {
     notFound();
   }
