@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import LazyBgVideo from "../elements/LazyBgVideo";
 
-export default function ServiceBgVideoCard({ serviceData,poster }) {
+export default function ServiceBgVideoCard({ serviceData, poster }) {
   return (
     <Link
       href={`/${serviceData?.slug}`}
@@ -34,7 +34,11 @@ export default function ServiceBgVideoCard({ serviceData,poster }) {
       </div>
 
       <div className="absolute inset-0 z-10 left-px">
-        <LazyBgVideo video_url={serviceData?.hero?.background_video_url} poster={poster} isRounded={true}  />
+        <LazyBgVideo
+          video_url={serviceData?.hero?.background_video_url}
+          poster={poster}
+          isRounded={true}
+        />
       </div>
     </Link>
   );

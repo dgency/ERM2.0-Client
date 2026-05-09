@@ -61,14 +61,14 @@ export default function HomeHeroSection({ data }) {
                 className="object-contain"
                 priority={true}
               />*/}
-               <Image
-    src={logo ? process.env.NEXT_PUBLIC_API_URL + logo.url : ""}
-    alt={`Partner Logo ${index}`}
-    fill
-    sizes="(max-width: 768px) 33vw, 20vw" // Helps Next.js serve the right size
-    className="object-contain" // Keeps the logo's aspect ratio inside the box
-    priority={true}
-  />
+              <Image
+                src={logo ? process.env.NEXT_PUBLIC_API_URL + logo.url : ""}
+                alt={`Partner Logo ${index}`}
+                fill
+                sizes="(max-width: 768px) 33vw, 20vw" // Helps Next.js serve the right size
+                className="object-contain" // Keeps the logo's aspect ratio inside the box
+                priority={true}
+              />
             </div>
           ))}
         </div>

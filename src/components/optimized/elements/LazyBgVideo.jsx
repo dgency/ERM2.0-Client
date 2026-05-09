@@ -31,7 +31,13 @@ export default function LazyBgVideo({
   }, [loadLazy]);
 
   return (
-    <div className="lazyload-video relative w-full h-full overflow-hidden bg-black">
+    <div
+      className={
+        isRounded
+          ? "lazyload-video relative w-full h-full overflow-hidden bg-black rounded-2xl"
+          : "lazyload-video relative w-full h-full overflow-hidden bg-black"
+      }
+    >
       <video
         ref={videoRef}
         autoPlay

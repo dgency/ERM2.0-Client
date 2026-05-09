@@ -91,11 +91,11 @@ export default function BookingMaxServiceCarousel({ serviceCarouselData }) {
                 ?.filter((item) => item?.slug !== router.slice(1))
                 .map((item, index) => {
                   return (
-                    <SwiperSlide key={index}>+
+                    <SwiperSlide key={index}>
+                      
                       <ServiceBgVideoCard
                         serviceData={item}
                         poster={findServiceVideoPoster(index)}
-                       
                       />
                     </SwiperSlide>
                   );

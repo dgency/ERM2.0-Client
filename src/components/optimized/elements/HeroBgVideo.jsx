@@ -2,7 +2,7 @@
 import { useEffect, useRef } from "react";
 export default function HeroBgVideo({ video_url, poster }) {
   const videoRef = useRef(null);
-   useEffect(() => {
+  useEffect(() => {
     videoRef.current.play();
   }, []);
   return (

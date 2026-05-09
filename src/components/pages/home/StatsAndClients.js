@@ -25,7 +25,6 @@ function StatsAndClients({ data, about }) {
                     <p className="text-[48px] sm:text-[74px] lg:text-[96px] font-midum text-neutral-50">
                       {stat?.title}
                     </p>
-                  
                   </div>
                   <span className="text-[12px] sm:text-[14px] lg:text-[16px] px-6.5 py-2.5 text-neutral-400 group-hover:text-neutral-100 duration-300 rounded-[10px] bg-secondary-800">
                     {stat?.short_description}
@@ -45,7 +44,7 @@ function StatsAndClients({ data, about }) {
                 Trusted by Escape Room Companies Globally
               </p>
               <div className="relative ">
-                <AnimatedLogoGrid logos={data?.logos} speed={0.10} />
+                <AnimatedLogoGrid logos={data?.logos} speed={0.1} />
                 <div className="w-full h-12.5 bg-linear-to-t from-secondary-900 to-transparent absolute bottom-0 left-0"></div>
                 <div className="w-full h-12.5 bg-linear-to-b from-secondary-900 to-transparent absolute top-0 left-0"></div>
               </div>
